@@ -161,12 +161,4 @@ class Intro(Scene):
             Transform(gen_text[-1], first_gen)
         )
 
-        self.wait(5)
-
-
-            
-
-
-        
-
-                  
+        self.wait(5)      
