@@ -149,7 +149,7 @@ class Intro(Scene):
         underline_three = Line(rules.get_left()*4.5, rules.get_right()*.92, stroke_width=2, color=YELLOW).shift(DOWN*0.15)
         self.play(Create(underline_three))
 
-        terminated_cell = Integer(number=0, color=WHITE, font_size=20).move_to(small_squares[4].get_center())
+        terminated_cell = Integer(number=0, color=BLUE_C, font_size=20).move_to(small_squares[4].get_center())
 
         self.wait(0.5)
 
