@@ -18,4 +18,4 @@ explain how simple rules can lead to complex behavior in a 2D grid of cells.
 
 
 ## Preview
-https://github.com/user-attachments/assets/b291cd82-a2e2-40fd-a3b5-576d717bbc52
+https://github.com/user-attachments/assets/0c0debaa-dab8-444b-88d7-a5420c649a28
