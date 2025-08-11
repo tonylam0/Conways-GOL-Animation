@@ -13,12 +13,15 @@ class Intro(Scene):
         self.play(Transform(intro_text, cell_text))
         self.play(intro_text.animate.shift(UP*1.1))
 
+        # Outer square of grid
         big_square = Square(1.5, color=WHITE, stroke_width=2)
 
         self.play(Create(big_square), run_time=0.8)
 
+        # Initiates the group of small grid squares
         small_squares = VGroup()
 
+        # Divides the big square into 9 mini grid squares
         for i in range(9):
             small_squares.add(Square(1.5/3, color=WHITE, stroke_width=2))
 
@@ -29,6 +32,7 @@ class Intro(Scene):
 
         self.wait(1.5)
 
+        # Used to highlight each square representing a cell within the game
         for square in small_squares:
             self.play(square.animate.set_fill(color=WHITE, opacity=1), run_time=0.1)
 
@@ -44,7 +48,8 @@ class Intro(Scene):
         self.play(Write(states))
 
         self.wait(1)
-
+        
+        # Represents a random generation of alive cells
         self.play(
             small_squares[0].animate.set_fill(color=WHITE, opacity=1),
             small_squares[4].animate.set_fill(color=WHITE, opacity=1),
@@ -66,6 +71,8 @@ class Intro(Scene):
 
         self.wait(2.5)
 
+        # For each alive cell from the random generation, replace it with the number 1
+        # For each dead cell from the ranodm generaiton, replace it with the number 0
         random_squares = (0, 4, 5, 6, 8)
         digits = VGroup()
         for idx in range(len(small_squares)):
@@ -81,13 +88,14 @@ class Intro(Scene):
 
         self.wait(4.5)
 
+        # Emphaszie the cell that is currently being evaluated
         self.play(Circumscribe(small_squares[4], buff=0.05, color=YELLOW))
         self.play(digits[4].animate.set_color(YELLOW), run_time=0.1)
 
         self.wait(.5)
-
+        
+        # Emphasize the neighbor cells
         self.play(Circumscribe(big_square, buff=0.1, color=BLUE_C, run_time=1.5))
-
         self.play(
             digits[0].animate.set_color(BLUE_C),
             digits[1].animate.set_color(BLUE_C),
@@ -124,6 +132,7 @@ class Intro(Scene):
 
         new_total = Text("4", color=BLUE_C, font_size=30).next_to(a_text, RIGHT).scale(0.7).shift(LEFT*0.41)
 
+        # Highlight the alive neighbor cells
         self.play(
             small_squares[0].animate.set_fill(color=WHITE, opacity=1),
             small_squares[5].animate.set_fill(color=WHITE, opacity=1),
@@ -138,6 +147,7 @@ class Intro(Scene):
 
         self.wait(.8)
 
+        # Highlight the cell that is being evaluated
         self.play(
             small_squares[4].animate.set_fill(color=WHITE, opacity=1),
             digits[4].animate.set_color(BLACK),
